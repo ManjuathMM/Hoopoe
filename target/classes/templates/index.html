@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Hoopoe E-Bikes</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"/>
+  <link rel="stylesheet" href="/style.css"/>
+</head>
+<body>
+  <!-- NAVBAR -->
+  <nav id="navbar">
+    <div class="logo-container">
+      <div class="logo-left">
+        <img src="/bird_logo.jpg" alt="Hoopoe E-Bikes Small Logo" class="logo-img-small"/>
+      </div>
+      <div class="logo-right">
+        <img src="/logo.jpg" alt="Hoopoe E-Bikes Large Logo" class="logo-img-large"/>
+      </div>
+    </div>
+    <button class="menu-toggle" id="mobile-menu" aria-label="Toggle menu">
+      <i class="fas fa-bars"></i>
+    </button>
+    <ul class="nav-links" id="nav-links">
+      <li><a href="#home">Home</a></li>
+      <li><a href="#models">Products</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <div class="right-nav">
+      <a href="/preorder" class="prebook-btn">
+        <i class="fas fa-calendar-check"></i> Prebook
+      </a>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero" id="home">
+    <div class="hero-media-container">
+      <video class="hero-media active" id="hero-video-1" autoplay muted playsinline loop preload="auto">
+        <source src="/hero-video-1.mp4" type="video/mp4"/>
+        Your browser does not support the video tag.
+      </video>
+      <video class="hero-media" id="hero-video" autoplay muted playsinline loop preload="auto">
+        <source src="/hero-video.mp4" type="video/mp4"/>
+        Your browser does not support the video tag.
+      </video>
+      <video class="hero-media" id="hero-video-2" autoplay muted playsinline loop preload="auto">
+        <source src="/hero-video-2.mp4" type="video/mp4"/>
+        Your browser does not support the video tag.
+      </video>
+    </div>
+    <!--<div class="hero-content">
+      <h1>Ride the Future Today</h1>
+      <p>Experience the perfect blend of power, style, and eco-friendly mobility</p>
+      <div class="cta-buttons">
+        <button class="btn btn-primary" data-scroll="#models">Explore Models</button>
+        <button class="btn btn-secondary" data-scroll=".video-section">Watch Video</button>
+      </div>-->
+    </div>
+  </section>
+
+  <h2 class="sec2Heading">Choose the perfect e-bike for your lifestyle from our premium collection</h2>
+
+  <!-- BIG VIDEO SECTION -->
+  <section class="video-section">
+    <video autoplay muted loop playsinline class="fullscreen-video" preload="auto">
+      <source src="/videoSec.mp4" type="video/mp4"/>
+      Your browser does not support the video tag.
+    </video>
+  </section>
+
+  <!-- MODELS -->
+  <section class="section" id="models">
+    <div class="container">
+      <div class="section-title">
+        <h2>Our Electric Bike Models</h2>
+      </div>
+      <div class="models-grid">
+        <div class="model-card animate-on-scroll">
+          <div class="model-image">
+            <img src="/SILVER.jpg" alt="Urban Commuter E-Bike"/>
+          </div>
+          <div class="model-content">
+            <h3 class="model-title">Urban Commuter (Base)</h3>
+            <div class="model-price">₹33,999</div>
+            
+            <a href="/model-urban" class="model-details-btn">View Details</a>
+          </div>
+        </div>
+        <div class="model-card animate-on-scroll" style="transition-delay:0.2s;">
+          <div class="model-image">
+            <img src="/full_bike.jpg" alt="Explorer Pro E-Bike"/>
+          </div>
+          <div class="model-content">
+            <h3 class="model-title">Explorer Pro (Mid)</h3>
+            <div class="model-price">₹36,999</div>
+            
+            <a href="/model-explorer" class="model-details-btn">View Details</a>
+          </div>
+        </div>
+        <div class="model-card animate-on-scroll" style="transition-delay:0.4s;">
+          <div class="model-image">
+            <img src="/img10.png" alt="Performance Pro E-Bike"/>
+          </div>
+          <div class="model-content">
+            <h3 class="model-title">Performance Pro (Pro)</h3>
+            <div class="model-price">₹39,999</div>
+            
+            <a href="/model-performance" class="model-details-btn">View Details</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  
+
+  <!-- CONTACT -->
+  <section class="section contact-section" id="contact">
+    <div class="container">
+      <div class="section-title">
+        <h2>Contact Us</h2>
+        <p>Have questions? Get in touch with our team</p>
+      </div>
+      <div class="contact-container">
+        <form id="contact-form" action="/contact" method="POST">
+          <div class="form-row">
+            <div class="form-group">
+              <label for="name">Name</label>
+              <input type="text" id="name" name="name" required/>
+            </div>
+            <div class="form-group">
+              <label for="email">Email</label>
+              <input type="email" id="email" name="email" required/>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="subject">Subject</label>
+            <input type="text" id="subject" name="subject" required/>
+          </div>
+          <div class="form-group">
+            <label for="message">Message</label>
+            <textarea id="message" name="message" rows="5" required></textarea>
+          </div>
+          <button type="submit" class="submit-btn">Send Message</button>
+          <div th:if="${message}" class="form-message success">[[${message}]]</div>
+          <div th:if="${error}" class="form-message error">[[${error}]]</div>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-column">
+          <h3>Hoopoe E-Bikes</h3>
+          <p>Ride the future today with our premium electric bikes designed for performance, style, and sustainability.</p>
+          <div class="social-links">
+            <a href="https://www.linkedin.com/company/hoopoe-bikes/" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+            <a href="https://x.com/HoopoeBikes" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+            <a href="https://www.instagram.com/hoopoe_e_bikes?igsh=b2Ftc2hqcXFtdHdy&utm_source=qr" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+            <a href="https://youtube.com/@hoopoebikes?si=e9nXljiU_Z5AOU5c" target="_blank"  aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+          </div>
+        </div>
+        <div class="footer-column">
+          <h3>Quick Links</h3>
+          <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#models">Products</a></li>
+            <li><a href="#advantages">Advantages</a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ul>
+        </div>
+        <div class="footer-column">
+          <h3>Products</h3>
+          <ul>
+            <li><a href="/model-urban">Urban Commuter</a></li>
+            <li><a href="/model-explorer">Explorer Pro</a></li>
+            <li><a href="/model-performance">Performance Pro</a></li>
+          </ul>
+        </div>
+        <div class="footer-column">
+          <h3>Contact Info</h3>
+          <ul>
+            <li><i class="fas fa-map-marker-alt"></i> First Floor, 741, Ramteerth Nagar, Lakshmipuri Layout, Auto Nagar, Belagavi, Karnataka 590015 </li>
+            <li><i class="fas fa-phone"></i> 8861334320</li>
+            <li><i class="fas fa-envelope"></i>hoopoebikes@gmail.com </li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2023 Hoopoe E-Bikes. All Rights Reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="/script.js"></script>
+
+  <!-- WhatsApp Chat Button -->
+  <div class="whatsapp-container">
+    <a href="https://wa.me/918861334320" target="_blank" rel="noopener" class="whatsapp-button">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp Logo"/>
+    </a>
+  </div>
+</body>
+</html>
